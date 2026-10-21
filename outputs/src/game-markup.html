@@ -1,0 +1,48 @@
+<main class="game">
+ <section class="map" id="map" aria-label="Bản đồ thế giới">
+  <div class="map-world" id="mapWorld">
+  <div class="mist"></div><div class="river"></div>
+  <div class="grid-overlay" id="gridOverlay" aria-hidden="true"></div>
+  <div class="mountain" style="left:8%;top:31%"></div><div class="mountain" style="left:17%;top:46%;transform:scale(1.3)"></div><div class="mountain" style="left:34%;top:23%;transform:scale(.85)"></div><div class="mountain" style="left:47%;top:39%;transform:scale(1.6)"></div><div class="mountain" style="left:68%;top:25%;transform:scale(1.2)"></div><div class="mountain" style="left:76%;top:53%;transform:scale(.8)"></div><div class="mountain" style="left:28%;top:67%;transform:scale(1.1)"></div><div class="mountain" style="left:55%;top:70%;transform:scale(1.3)"></div>
+  <div class="region" style="left:28%;top:42%">BÌNH DƯƠNG</div><div class="region" style="left:5%;top:76%;font-size:17px">THANH LÂM</div><div class="region" style="left:63%;top:79%;font-size:18px">THIÊN PHỦ</div>
+  <div class="sect" style="left:39%;top:27%"><i></i>Huyết Sát Tông</div><div class="sect" style="left:57%;top:61%"><i></i>Bách Hoa Môn</div><div class="sect" style="left:17%;top:62%"><i></i>Thanh Vân Sơn</div>
+  <span class="location-marker" style="left:17%;top:62%"></span><span class="location-label" style="left:17%;top:62%">Thanh Vân Sơn</span><span class="location-marker" style="left:39%;top:27%"></span><span class="location-label" style="left:39%;top:27%">Huyết Sát Tông</span><span class="location-marker" style="left:57%;top:61%"></span><span class="location-label" style="left:57%;top:61%">Bách Hoa Môn</span>
+  <svg class="route-layer" id="routeLayer" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line id="routeLine" class="route-line" x1="0" y1="0" x2="0" y2="0"/><circle id="routeEnd" class="route-end" cx="0" cy="0" r=".24"/></svg>
+  <button class="person" data-name="Đường Nhi" style="left:53%;top:39%">ĐN</button><button class="person" data-name="Mạc Hạo" style="left:36%;top:55%">MH</button><button class="person" data-name="Yến Điệp" style="left:72%;top:48%">YĐ</button><button class="person" data-name="Tô Kiếm" style="left:61%;top:72%">TK</button><button class="person" data-name="Diệp Lập" style="left:45%;top:24%">DL</button><button class="person" data-name="Bạch Lan" style="left:24%;top:37%">BL</button>
+  <span class="orb" style="left:22%;top:30%"></span><span class="orb" style="left:64%;top:35%"></span><span class="orb" style="left:43%;top:70%"></span><span class="orb" style="left:79%;top:67%"></span><span class="orb" style="left:31%;top:82%"></span>
+  </div>
+ </section>
+ <div class="zoom-controls" aria-label="Điều khiển bản đồ"><button id="zoomOut" title="Thu nhỏ">−</button><span id="zoomLabel">100%</span><button id="zoomIn" title="Phóng to">+</button><button id="zoomReset" title="Đặt lại bản đồ">⌖</button></div>
+ <header class="top"><div class="realm-mark"><div class="brand" title="Thiên Đạo">玄</div><div class="worldname"><b>PHÀM GIỚI</b><small>THIÊN CƠ · 01</small></div></div><div class="resource"><strong id="yuan">271</strong><div><small>BẢN NGUYÊN</small><small>thu +29,1/năm</small></div></div><div class="year"><strong id="date">Ngày 1 · Tháng 1 · Năm 3</strong><small id="status">THỜI GIAN ĐANG DỪNG</small></div></header>
+ <div class="right-actions"><button class="iconbtn" data-modal="Thiên Đạo">☯</button><button class="iconbtn" data-modal="Tìm kiếm">⌕</button><button class="iconbtn" data-modal="Cài đặt">☰</button></div>
+ <div class="clock-controls" id="clockControls"><button id="pause" class="play-toggle" aria-label="Bắt đầu mô phỏng" title="Bắt đầu">▶</button><span class="clock-divider"></span><button class="speed active" data-speed="5">1×</button><button class="speed" data-speed="25">5×</button><button class="speed" data-speed="100">20×</button></div>
+ <aside class="side command-panel" id="commandPanel"><div class="command-head"><span class="sidehead">THIÊN CƠ</span><span class="rule"></span><button class="panel-toggle" id="commandToggle" aria-label="Thu gọn bảng thiên cơ" title="Thu gọn">‹</button></div><div class="command-content"><div class="empty" id="decision">— Không có việc chờ —</div><div class="event"><strong>DỊ BIẾN GẦN ĐÂY</strong><p id="eventText">Thế giới đang yên bình. Các tông môn phát triển, tu sĩ tiếp tục tu hành.</p></div></div></aside>
+ <aside class="follow-panel" id="followPanel"><div class="follow-head"><span class="sidehead">NHÂN DUYÊN</span><span class="rule"></span><button class="pill search-btn" id="search">⌕ Tìm</button><button class="panel-toggle" id="followToggle" aria-label="Thu gọn danh sách nhân duyên" title="Thu gọn">›</button></div><div class="followers" id="followers"></div></aside>
+ <div class="bottom"><button class="pill on" id="mapBtn">▧ Tinh đồ</button><button class="pill" id="qiBtn">◉ Linh mạch</button><button class="pill" id="gridBtn" title="Hiện lưới 96 ô, địa điểm và tài nguyên">▦ Lưới</button></div>
+ <div class="toast" id="toast"></div>
+ <section class="sheet npc-panel" id="sheet" data-active-tab="cultivation" aria-label="Hồ sơ nhân vật">
+ <header class="npc-panel-header">
+  <div class="npc-portrait" id="personPortrait" aria-hidden="true">☯</div>
+  <div class="npc-heading">
+   <h2 id="personName">Đường Nhi</h2>
+   <p id="personMeta"></p>
+   <div id="personLocation" class="npc-location"></div>
+  </div>
+  <span id="personRank" class="npc-rank"></span>
+  <button class="close" id="closeSheet" type="button" aria-label="Đóng hồ sơ">×</button>
+ </header>
+ <nav class="person-tabs" role="tablist" aria-label="Chi tiết nhân vật">
+  <button type="button" class="person-tab active" role="tab" aria-selected="true" data-person-tab="cultivation"><span>☯</span> Tu luyện</button>
+  <button type="button" class="person-tab" role="tab" aria-selected="false" data-person-tab="info"><span>◉</span> Thông tin</button>
+  <button type="button" class="person-tab" role="tab" aria-selected="false" data-person-tab="stats"><span>▥</span> Chỉ số</button>
+  <button type="button" class="person-tab" role="tab" aria-selected="false" data-person-tab="inventory"><span>▣</span> Túi đồ</button>
+ </nav>
+ <div class="npc-panel-body"><div class="person-content" id="personContent" role="tabpanel"></div></div>
+ <footer class="npc-panel-footer">
+  <button class="btn primary" id="followBtn">☆ Theo dõi</button>
+  <button class="btn" data-action="Ban cơ duyên">✦ Ban cơ duyên</button>
+  <button class="btn" data-action="Giáng lôi kiếp">ϟ Giáng lôi kiếp</button>
+ </footer>
+</section>
+ <div class="modal" id="modal"><div class="modalbox"><h2 id="modalTitle">Thiên Đạo</h2><p id="modalCopy">Chọn một quyền năng để tác động đến thế giới.</p><div class="choices" id="choices"></div></div></div>
+</main>

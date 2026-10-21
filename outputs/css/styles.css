@@ -1,0 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Noto+Serif:wght@600;700&display=swap');
+@import "./world-base.css";
+@import "./hud-layout.css";
+@import "./typography.css";
+@import "./npc-panel.css";
+@import "./npc-dossier.css";
